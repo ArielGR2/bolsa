@@ -14,9 +14,9 @@ import '../../i18n';
 const BodyEmpresas = () => {
   const { t, i18n } = useTranslation();
 
-  const [empresas, setEmpresas] = useState<string[]>([]);
+  const [empresas, setEmpresas] = useState<string[]>(["BA","WMT","JPM"]);
   const [cotizaciones, setCotizaciones] = useState<iCotizacion[]>([]);
-  const [selectedEmpresas, setSelectedEmpresas] = useState<string[]>([]);
+  const [selectedEmpresas, setSelectedEmpresas] = useState<string[]>(["BA","WMT","JPM"]);
   const [tipoGrafico, setTipoGrafico] = useState<'diario' | 'mensual' | 'anual'>('mensual');
   const [fechaSeleccionada, setFechaSeleccionada] = useState<string>("");
   const [mesSeleccionado, setMesSeleccionado] = useState<string>("");
@@ -162,7 +162,7 @@ const BodyEmpresas = () => {
       <GraficoSelector tipoGrafico={tipoGrafico} setTipoGrafico={setTipoGrafico} />
 
       {/* Botones para seleccionar las empresas */}
-      <div style={{ margin: '8px 0' }}>
+      {/* <div style={{ margin: '8px 0' }}>
         {empresas.map(empresa => (
           <button
             key={empresa}
@@ -178,7 +178,7 @@ const BodyEmpresas = () => {
             {empresa}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* Navegación para el gráfico diario */}
       {tipoGrafico === 'diario' && (

@@ -74,7 +74,7 @@ const GraficoTortaConTabla: React.FC<Props> = ({ datos }) => {
 
         
       </div>
-      <div className="w-full md:w-1/2 p-2">
+      <div className="w-full p-2" style={{margin: '25px 5px 5px 5px '}}>
         {/* <h3 className="text-center text-lg font-semibold">{t('grafico.tabla.empresa')}</h3> */}
         <table className="min-w-full border-collapse border border-gray-200">
           <thead>
