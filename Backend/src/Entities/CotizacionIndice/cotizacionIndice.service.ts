@@ -8,6 +8,7 @@ import { IFecha } from 'src/Models/fecha.model';
 import axios, { AxiosResponse } from 'axios';
 import { baseURL } from 'src/Services/AxiosAGempresa';
 import { CotizacionesService } from '../Cotizacion/cotizaciones.services';
+import { Console } from 'console';
 
 @Injectable()
 export class CotizacionIndiceService {
@@ -22,7 +23,7 @@ export class CotizacionIndiceService {
 
   ) { }
 
-  public async traerDatosDBLocalCotizacionIndice(): Promise<CotizacionIndice[]>{
+  public async traerDatosDBLocalCotizacionIndice(): Promise<CotizacionIndice[]> {
     return this.cotizacionIndiceRepository.find()
   }
 
@@ -185,16 +186,16 @@ export class CotizacionIndiceService {
 
       const valorLimitado = parseFloat((promedio).toFixed(2));
 
-      const existeEnGempresa = await this.verificarIndiceEnGempresa(grupo.fecha, grupo.hora, "TSX");
-      const existeEnBaseDeDatos = await this.verificarCotizacionEnBaseDeDatos(grupo.fecha, grupo.hora, "TSX");
+      const existeEnGempresa = await this.verificarIndiceEnGempresa(grupo.fecha, grupo.hora, "SSE");
+      const existeEnBaseDeDatos = await this.verificarCotizacionEnBaseDeDatos(grupo.fecha, grupo.hora, "SSE");
 
       if (!existeEnGempresa && !existeEnBaseDeDatos) {
-        const indiceTSX = await this.indiceRepository.findOne({ where: { codigoIndice: 'TSX' } });
-        const cotizacionIndice = new CotizacionIndice(grupo.fecha, grupo.hora, valorLimitado, indiceTSX)
+        const indiceSSE = await this.indiceRepository.findOne({ where: { codigoIndice: 'SSE' } });
+        const cotizacionIndice = new CotizacionIndice(grupo.fecha, grupo.hora, valorLimitado, indiceSSE)
         await this.cotizacionIndiceRepository.save(cotizacionIndice)
-        await this.publicarIndiceEnGempresa(grupo.fecha, grupo.hora, "TSX", valorLimitado);
-      } else {
-        // this.logger.warn(`El índice TSX ya existe para la fecha ${grupo.fecha} y hora ${grupo.hora}, no se guardará ni publicará de nuevo.`);
+        await this.publicarIndiceEnGempresa(grupo.fecha, grupo.hora, "SSE", valorLimitado);
+      } else { console.log("Indice ya existe");
+      
       }
     }
   }
@@ -221,10 +222,10 @@ export class CotizacionIndiceService {
     const url = `http://ec2-54-145-211-254.compute-1.amazonaws.com:3000/indices/cotizaciones/${codigoIndice}?fecha=${fecha}&hora=${hora}`;
     try {
       const response = await axios.get(url);
-      return response.data.length > 0; 
-    } catch (error) { 
+      return response.data.length > 0;
+    } catch (error) {
       // this.logger.error(`Error al verificar el índice ${codigoIndice} en Gempresa: ${error.message}`);
-      return false; 
+      return false;
     }
   }
 
@@ -233,18 +234,18 @@ export class CotizacionIndiceService {
       where: {
         fecha: fecha,
         hora: hora,
-        codigoIndice: { codigoIndice } 
+        codigoIndice: { codigoIndice }
       }
     });
-    return cotizacionExistente !== null; 
+    return cotizacionExistente !== null;
   }
 
   public async getFiltrarCotizaciones(codIndice: string): Promise<CotizacionIndice[]> {
     try {
       const cotizacionesIndice = await this.cotizacionIndiceRepository.find({
-        relations: ['codigoIndice'], 
+        relations: ['codigoIndice'],
         where: {
-          codigoIndice: {codigoIndice: codIndice},
+          codigoIndice: { codigoIndice: codIndice },
         }
       });
       // console.log("Cotizacion Indice", cotizacionesIndice)

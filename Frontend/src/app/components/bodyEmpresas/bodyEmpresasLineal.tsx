@@ -16,7 +16,7 @@ const BodyEmpresas = () => {
 
   const [empresas, setEmpresas] = useState<string[]>([]);
   const [cotizaciones, setCotizaciones] = useState<iCotizacion[]>([]);
-  const [selectedEmpresas, setSelectedEmpresas] = useState<string[]>(["KO"]);
+  const [selectedEmpresas, setSelectedEmpresas] = useState<string[]>([]);
   const [tipoGrafico, setTipoGrafico] = useState<'diario' | 'mensual' | 'anual'>('mensual');
   const [fechaSeleccionada, setFechaSeleccionada] = useState<string>("");
   const [mesSeleccionado, setMesSeleccionado] = useState<string>("");
@@ -25,13 +25,10 @@ const BodyEmpresas = () => {
 
   // Paleta de colores asignada a cada empresa
   const colorMap: { [key: string]: string } = {
-    'KO': '#FF5733',
-    'NVDA': '#33FF57',
-    'PEP': '#3357FF',
-    'SHEL': '#FF33A1',
-    'TM': '#FFA533',
-    'V': '#8E44AD',
-    'XOM': '#3498DB'
+    'JPM': '#FF5733',
+    'WMT': '#33FF57',
+    'BA': '#3357FF',
+    
   };
 
   const cargarEmpresas = async () => {
@@ -197,7 +194,7 @@ const BodyEmpresas = () => {
         <div className="flex items-center space-x-2">
           <button className="p-2 text-sm bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => cambiarMes(-1)}>{t('buttons.previous_month')}</button>
           <button className="p-2 text-sm bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => cambiarMes(1)}>{t('buttons.next_month')}</button>
-          <p>{t('Mes Seleccionado')}: {mesSeleccionado}</p>
+          <p>{t('selected_month')}: {mesSeleccionado}</p>
         </div>
       )}
 

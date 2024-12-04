@@ -38,7 +38,7 @@ i18next
                     no_data: "No data to display.",
                     error: "Error loading data.",
                     navbar: {
-                        title: "TORONTO STOCK EXCHANGE - TSX VENTURE EXCHANGE",
+                        title: "Bolsa de Shanghái - SSE",
                     },
                     footer: {
                         languages: "Supported Languages",
@@ -49,7 +49,7 @@ i18next
                         title: "Stock Index Quotes",
                     },
                     body_empresas: {
-                        title: "TSX Listed Companies",
+                        title: "Companies listed on SSE",
                     },
                     grafico: {
                         tooltip: {
@@ -63,7 +63,6 @@ i18next
                             porcentaje: "Percentage (%)",
                             participacion: "Market Part."
                         },
-                        
                     },
                 },
             },
@@ -85,7 +84,7 @@ i18next
                         fecha: "Fecha",
                         cotizacion: "Cotización",
                     },
-                    Participación_de_Empresas: "Participación de Empresas",
+                    Participación_de_Empresas: "Distribución del Mercado",
                     idioma: "Idioma",
                     selected_date: "Fecha Seleccionada",
                     selected_month: "Mes Seleccionado",
@@ -93,7 +92,7 @@ i18next
                     no_data: "No hay datos para mostrar.",
                     error: "Error al cargar los datos.",
                     navbar: {
-                        title: "BOLSA DE VALORES DE TORONTO - INTERCAMBIO DE EMPRESAS",
+                        title: "Bolsa de Shanghái - SSE",
                     },
                     footer: {
                         languages: "Idiomas soportados",
@@ -104,7 +103,7 @@ i18next
                         title: "Cotizaciones de los Índices Bursátiles",
                     },
                     body_empresas: {
-                        title: "TSX - Empresas Cotizando",
+                        title: "Empresas cotizando en SSE",
                     },
                     grafico: {
                         tooltip: {
@@ -118,7 +117,60 @@ i18next
                             porcentaje: "Porcentaje (%)",
                             participacion: "Part. del Mercado"
                         },
-                        
+                    },
+                },
+            },
+            ch: {
+                translation: {
+                    title: "公司报价",
+                    buttons: {
+                        save: "保存",
+                        cancel: "取消",
+                        login: "登录",
+                        previous_day: "前一天",
+                        next_day: "后一天",
+                        previous_month: "上个月",
+                        next_month: "下个月",
+                        daily_chart: "每日图表",
+                        monthly_chart: "每月图表",
+                        annual_chart: "年度图表",
+                        hora: "小时",
+                        fecha: "日期",
+                        cotizacion: "报价",
+                    },
+                    Participación_de_Empresas: "公司参与",
+                    idioma: "语言",
+                    selected_date: "选择的日期",
+                    selected_month: "选择的月份",
+                    loading: "正在加载数据...",
+                    no_data: "没有数据显示。",
+                    error: "加载数据时出错。",
+                    navbar: {
+                        title: "多伦多证券交易所 - SSE创业板市场",
+                    },
+                    footer: {
+                        languages: "支持的语言",
+                        countries:
+                            "交易所来自：加拿大，美国，土耳其，阿根廷，巴西，日本，中国，英国，荷兰，法国，德国，澳大利亚，意大利，挪威，俄罗斯",
+                    },
+                    body_indices: {
+                        title: "股票指数报价",
+                    },
+                    body_empresas: {
+                        title: "SSE上市公司",
+                    },
+                    grafico: {
+                        tooltip: {
+                            codigo: "代码",
+                            valor: "数值",
+                        },
+                        tabla: {
+                            empresa: "公司",
+                            codigo: "代码",
+                            valor_inicial: "初始值",
+                            porcentaje: "百分比(%)",
+                            participacion: "市场份额"
+                        },
                     },
                 },
             },

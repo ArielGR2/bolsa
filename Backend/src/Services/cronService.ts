@@ -18,7 +18,7 @@ export class CronService {
     this.logger.log('Servicio Gen Data Inicializado');
   }
 
-  @Cron('0 1 * * * *')
+  @Cron('0 11 * * * *')
   async actualizarCotizacionesDesdeGempresa() {
     this.logger.log("Cron - Actualizando cotizaciones en DB Local");
 

@@ -1,57 +1,43 @@
 "use client"
 
-import React from "react";
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from '../languageSwitcher/LanguageSwitcher';
+import React from 'react'
+import './Footer.css'
+import telefono from '../../../../public/images/telefono.png'
+import ubicacion from '../../../../public/images/ubicacion.png'
+import mail from '../../../../public/images/mail.png'
 
-const Footer = () => {
-  const { t } = useTranslation();
 
+export const Footer = () => {
   return (
-    <footer className="w-full bg-gray-800 text-black py-6 ">
-      <div className="container min-w-[1600px] px-4 w-2/3">
-        <div className="flex flex-wrap justify-between items-center">
-          {/* Sección del logo */}
-          <div className="flex items-center mb-4 md:mb-0">
-            {/* <img
-              src="./images/TSX.svg.png" // Cambia a la ruta de tu logo
-              alt="TSX Logo"
-              className="w-16 h-auto"
-            /> */}
-            {/* <span className="ml-8 text-lg font-bold">{t("navbar.title")}</span> */}
-          </div>
-
+    <div className='div-Footer'>
+      <h2 className='titulo'>Contacto del desarrollador WEB</h2>
+      <div className='superior'>
+        <div className='fotter_info'>
+          <img src={ubicacion.src} alt="" />
+          <p>Av. Avellaneda 3670 - Olavarría |</p>
         </div>
 
-        {/* Logos de empresas */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mt-3 ">
-          {[
-            "./images/visa.png",
-            "./images/cocacola.png",
-            "./images/toyota.png",
-            "./images/exxonmobile.png",
-            "./images/pepsico.png",
-            "./images/nvidia.png",
-            "./images/shell.png",
-          ].map((logo, index) => (
-            <img
-              key={index}
-              src={logo} // Ruta del logo de cada empresa
-              alt={`Company ${index + 1}`}
-              className="w-16 h-auto"
-            />
-          ))}
+        <div className='fotter_info'><img src={mail.src} alt="" />
+          <p>contacto@arielromera.com.ar |</p>
         </div>
 
-        {/* Información adicional */}
-        <div className="mt-6 text-center">
-          <p className="text-sm">{t("footer.countries")}</p>
-          <p className="text-xs mt-1">
-            {t("footer.languages")} | © {new Date().getFullYear()} TSX.
-          </p>
+        <div className='fotter_info'>
+          <img src={telefono.src} alt="" />
+          <p>2284 - 999999</p>
         </div>
+
       </div>
-    </footer>
-  );
-};
+      <hr />
+      <div className='inferior'>
+        Ariel Romera Ⓡ Corporation
 
-export default Footer;
+      </div>
+
+
+
+    </div>
+
+  )
+}

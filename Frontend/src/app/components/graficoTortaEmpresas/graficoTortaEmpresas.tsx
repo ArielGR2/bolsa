@@ -47,7 +47,7 @@ const GraficoTortaConTabla: React.FC<Props> = ({ datos }) => {
   const totalValue = datos.reduce((acc, curr) => acc + curr.value, 0);
 
   return (
-    <div className="flex flex-wrap min-h-[800] items-center">
+    <div className="flex flex-col min-h-[800] items-center">
       <div className="w-full md:w-1/2 p-2 flex justify-center">
 
         <PieChart width={600} height={400}>
@@ -58,6 +58,7 @@ const GraficoTortaConTabla: React.FC<Props> = ({ datos }) => {
             cx="50%"
             cy="50%"
             outerRadius={100}
+            
             fill="#8884d8"
             label={({ value, payload }) => 
               `${payload.codEmp} - ${((value / totalValue) * 100).toFixed(2)}%`
@@ -70,6 +71,8 @@ const GraficoTortaConTabla: React.FC<Props> = ({ datos }) => {
           <Tooltip content={<CustomTooltip />} />
           <Legend />
         </PieChart>
+
+        
       </div>
       <div className="w-full md:w-1/2 p-2">
         {/* <h3 className="text-center text-lg font-semibold">{t('grafico.tabla.empresa')}</h3> */}

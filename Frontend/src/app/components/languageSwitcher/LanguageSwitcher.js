@@ -17,6 +17,7 @@ const LanguageSwitcher = () => {
       <option>{t('idioma')}</option>
       <option value='en'>English</option>
       <option value='es'>Español</option>
+      <option value='ch'>Chino</option>
     </select>
   );
 };

@@ -14,20 +14,24 @@ const BodyIndices = () => {
   const { t, i18n } = useTranslation();
 
   const [indices, setIndices] = useState<string[]>([]);
-  const [selectedIndices, setSelectedIndices] = useState<string[]>(["TSX"]);
+//  const [selectedIndices, setSelectedIndices] = useState<string[]>([]);
+  const [selectedIndices, setSelectedIndices] = useState<string[]>(['SSE']);
+
   const [cotizaciones, setCotizaciones] = useState<iCotizacionIndice[]>([]);
-  const [tipoGrafico, setTipoGrafico] = useState<'diario' | 'mensual' | 'anual'>('mensual');
+  const [tipoGrafico, setTipoGrafico] = useState<'diario' | 'mensual' | 'anual'>('anual');
   const [fechaSeleccionada, setFechaSeleccionada] = useState<string>("");
   const [mesSeleccionado, setMesSeleccionado] = useState<string>("");
   const [cargando, setCargando] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const colors = [
+   const colors = [
     '#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#FFA533',
     '#8E44AD', '#3498DB', '#E74C3C', '#2ECC71', '#F39C12',
     '#9B59B6', '#1ABC9C', '#34495E', '#27AE60', '#E67E22',
     '#2980B9', '#C0392B', '#D35400', '#7D3C98', '#16A085'
   ];
+  
+
 
   const [colorMap, setColorMap] = useState<{ [key: string]: string }>({});
 
@@ -157,25 +161,25 @@ const BodyIndices = () => {
   };
 
   return (
-    <div style={{ padding: '14px' }}>
+    <div style={{ padding: '10px' }}>
 
 
-      <div style={{ padding: '14px', border: '2px solid #ddd', borderRadius: '8px' }}>
+      <div style={{ padding: '14px', border: '2px solid #ddd', borderRadius: '3px' }}>
       <h1 style={{ textAlign: 'center', fontWeight: 'bold' }}>{t('body_indices.title')}</h1>
       </div>
 
       {/* Selector de tipo de gráfico */}
       <GraficoSelector tipoGrafico={tipoGrafico} setTipoGrafico={setTipoGrafico} />
-
+      <p style={{ textAlign:'center',fontWeight:'bold'}}>Seleccione Indices para comparar con SSE:</p >
       {/* Botones para seleccionar los índices */}
-      <div style={{ margin: '8px 0' }}>
+      <div style={{ margin: '10px 0' }}>
         {indices.map(indice => (
           <button
             key={indice}
             onClick={() => toggleIndice(indice)}
             style={{
-              margin: '4px',
-              padding: '6px',
+              margin: '3px',
+              padding: '5px',
               backgroundColor: selectedIndices.includes(indice) ? colorMap[indice] : 'lightgray',
               color: 'white',
               border: `2px solid ${colorMap[indice]}`,
